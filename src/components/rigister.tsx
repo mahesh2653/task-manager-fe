@@ -34,7 +34,6 @@ interface RegisterFormValues {
 }
 
 const url = process.env.BACKEND_URL;
-console.log(url, "url");
 const RegisterForm: React.FC<RegisterFormValues> = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -57,16 +56,13 @@ const RegisterForm: React.FC<RegisterFormValues> = ({ onClose }) => {
         username: values.email,
       });
 
-      console.log(response.data);
       toastInfo(response.data.message);
       setTimeout(() => {
         resetForm();
         onClose();
       }, 500);
     } catch (error) {
-      console.log(error);
       if (axios.isAxiosError(error) && error.response) {
-        console.log(error.response.data.message);
         toastError(error.response.data.message);
       }
     } finally {

@@ -3,7 +3,7 @@ import CustomLoader from "@/components/customloader";
 import UserDashboard from "@/components/usreDashboard";
 import { useAuth } from "@/services/authContext";
 import IRoles from "@/type/role";
-const { ADMIN, STUDENT, USER } = IRoles;
+const { USER } = IRoles;
 
 export default function Home() {
   const { user } = useAuth();

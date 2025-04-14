@@ -1,9 +1,7 @@
-// authContext.tsx
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import LoginForm from "@/components/login";
-import { Loader } from "lucide-react";
 import CustomLoader from "@/components/customloader";
 import { useRouter } from "next/navigation";
 import { toastInfo } from "@/utils/toast";
@@ -55,7 +53,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         setUser(response.data.data);
         setToken(storedToken);
       } catch (error) {
-        console.error("Token verification failed:", error);
         localStorage.removeItem("Token");
         setUser(null);
         setToken(null);

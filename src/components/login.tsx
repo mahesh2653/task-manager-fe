@@ -6,7 +6,7 @@ import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 import RegisterForm from "./rigister";
 import { useAuth } from "@/services/authContext";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { toastError, toastInfo } from "@/utils/toast";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,7 +43,6 @@ const LoginForm = () => {
       toastInfo("Login successfully");
       setTimeout(() => {
         localStorage.setItem("Token", response.data.data.token);
-        console.log(response.data.data);
         setUser(response.data.data.user);
         setToken(response.data.data.token);
         resetForm();
@@ -131,7 +130,7 @@ const LoginForm = () => {
           )}
         </Formik>
         <p className="mt-4 text-sm text-center text-gray-600">
-          Don't have an account?{" "}
+          {` Don't have an account?`}
           <a
             // href="/signup"
             className="text-blue-500 hover:underline cursor-pointer"

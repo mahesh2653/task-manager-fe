@@ -11,6 +11,23 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  compat.config({
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "import/no-anonymous-default-export": [
+        "error",
+        {
+          allowArray: true,
+          allowArrowFunction: true,
+          allowAnonymousClass: true,
+          allowAnonymousFunction: true,
+          allowCallExpression: true,
+          allowLiteral: true,
+          allowObject: true,
+        },
+      ],
+    }
+  }),
 ];
 
 export default eslintConfig;

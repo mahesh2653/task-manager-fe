@@ -67,7 +67,7 @@ const TaskModal: React.FC<TaskModalProps> = ({
 
   const handleSubmit = async (
     values: HandleSubmitValues,
-    { setSubmitting, resetForm }: HandleSubmitActions
+    { setSubmitting }: HandleSubmitActions
   ): Promise<void> => {
     try {
       let response;
@@ -77,7 +77,6 @@ const TaskModal: React.FC<TaskModalProps> = ({
           userId: user?.id,
         });
       } else {
-        console.log(values);
         response = await axios.post(`${url}/api/tasks`, {
           ...values,
           userId: user?.id,
